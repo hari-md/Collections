@@ -3,15 +3,16 @@ using System.Text;
 
 namespace Collections
 {
-    public class Collection<T> // Constructor
+    public class Collection<T> 
     {
+        // Constructor
+
         private const int InitialCapacity = 16;
         private T[] items;
         public int Capacity => this.items.Length;
         public int Count { get; private set; }
 
-        public Collection(params T[] items)  //params - keyword, you can specify a method parameter
-                                             //that takes a variable number of arguments. The parameter type must be a single-dimensional array.
+        public Collection(params T[] items) 
         {
             int capacity = Math.Max(2 * items.Length, InitialCapacity);
             this.items = new T[capacity];
@@ -40,6 +41,7 @@ namespace Collections
             if (this.Count == this.Capacity)
             {
                 // Grow the capacity 2 times and move the items
+
                 T[] oldItems = this.items;
                 this.items = new T[2 * oldItems.Length];
                 for (int i = 0; i < this.Count; i++)
