@@ -16,9 +16,7 @@ namespace Collection.UnitTests
 
             //Assert
             Assert.That(nums.ToString(), Is.EqualTo("[]"));
-
         }
-
 
         [Test]
         public void Test_Collection_ConstructorSingleItem()
@@ -28,7 +26,6 @@ namespace Collection.UnitTests
             Assert.That(nums[0], Is.EqualTo(5));
         }
 
-
         [Test]
         public void Test_Collection_ConstructorMultipleItems()
         {
@@ -36,7 +33,6 @@ namespace Collection.UnitTests
 
             Assert.That(nums.ToString(), Is.EqualTo("[5, 10, 15]"));
         }
-
 
         [Test]
         public void Test_Collection_AddText()
@@ -47,7 +43,6 @@ namespace Collection.UnitTests
 
             Assert.That(numbers.ToString(), Is.EqualTo("[Zero, One, Two]"));
         }
-
 
         [Test]
         public void Test_Collection_AddRangeWithGrow()
@@ -64,7 +59,6 @@ namespace Collection.UnitTests
             Assert.That(nums.Capacity, Is.GreaterThanOrEqualTo(nums.Count));
         }
 
-
         [Test]
         public void Test_Collection_GetByIndex()
         {
@@ -77,7 +71,6 @@ namespace Collection.UnitTests
             Assert.That(item0, Is.EqualTo("Peter"));
             Assert.That(item1, Is.EqualTo("Maria"));
         }
-
 
         [Test]
         public void Test_Collection_GetByInvalidIndex()
@@ -96,6 +89,14 @@ namespace Collection.UnitTests
             Assert.That(names.ToString(), Is.EqualTo("[Bob, Joe]"));
         }
 
+        [TestCase(-1)]
+        [TestCase(4)]
+        public void Test_Collection_GetByInvalidIndexDDT(int index)
+        {
+            var names = new Collection<string>("Bob", "Joe");
+
+            Assert.That(() => names.RemoveAt(index), Throws.InstanceOf<ArgumentOutOfRangeException>());
+        }
 
         [Test]
         public void Test_Collection_SetByIndex()
@@ -108,9 +109,7 @@ namespace Collection.UnitTests
 
             // Assert
             Assert.That(names.ToString(), Is.EqualTo("[Peter, Monika]"));
-
         }
-
 
         [Test]
         public void Test_Collection_CountAndCapacity()
@@ -120,7 +119,6 @@ namespace Collection.UnitTests
             Assert.That(nums.Count, Is.EqualTo(5));
             Assert.That(nums.Capacity, Is.GreaterThanOrEqualTo(nums.Count));
         }
-
 
         [Test]
         public void Test_Collection_Add()
@@ -134,7 +132,6 @@ namespace Collection.UnitTests
             // Assert
             Assert.That(nums.ToString(), Is.EqualTo("[10, 20, 30, 40, 50, 60]"));
         }
-
 
         [Test]
         public void Test_Collection_ChangeItemsByIndex()
@@ -150,7 +147,6 @@ namespace Collection.UnitTests
             Assert.That(nums.ToString, Is.EqualTo("[10, 2000, 30, 40, 50, 6000]"));
         }
 
-
         [Test]
         public void Test_Collection_RemoveItemFromPosition()
         {
@@ -164,7 +160,6 @@ namespace Collection.UnitTests
             //Assert
             Assert.That(nums.ToString, Is.EqualTo("[2000, 30, 40, 50]"));
         }
-
         
         //DDT
         [TestCase(-1)]
@@ -176,7 +171,6 @@ namespace Collection.UnitTests
             Assert.That(() => nums.RemoveAt(index), Throws.InstanceOf<ArgumentOutOfRangeException>());
         }
 
-       
         [Test]
         public void Test_Constructor_ExchangePositions()
         {
@@ -189,7 +183,6 @@ namespace Collection.UnitTests
             //Assert
             Assert.That(nums.ToString(), Is.EqualTo("[30, 2000, 40, 50]"));
         }
-
 
         [Test]
         public void Test_Collection_AddNumbers()
@@ -207,7 +200,6 @@ namespace Collection.UnitTests
             Assert.That(nums.ToString(), Is.EqualTo("[30, 2000, 40, 50, 1, 2, 3, 4, 5," +
                 " 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]"));
         }
-
 
         [Test]
         public void Test_Collection_InsertAtIndex()
@@ -227,7 +219,6 @@ namespace Collection.UnitTests
             Assert.That(nums.Capacity, Is.GreaterThanOrEqualTo(nums.Count));
         }
 
-
         [Test]
         public void Test_Collection_IsClear()
         {
@@ -237,7 +228,6 @@ namespace Collection.UnitTests
 
             Assert.That(nums, Is.Empty);
         }
-
 
         [Test]
         [Timeout(1000)]
